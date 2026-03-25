@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>발리 가족여행 컴팩트 플랜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e8;--paper:#fffdfa;--ink:#1f2c28;--muted:#66726b;--line:#e6ddd1;
+  --brand:#176b63;--brand-soft:#dff0ec;--accent:#d07a2d;--shadow:0 10px 30px rgba(28,39,33,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:linear-gradient(180deg,#faf6f0 0%,var(--bg) 100%);color:var(--ink);line-height:1.65}
+a{color:var(--brand);text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.nav{position:sticky;top:0;z-index:10;background:rgba(250,246,240,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(31,44,40,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--ink)}
+.menu{display:flex;gap:18px;list-style:none;font-size:14px;font-weight:700}
+.hero{padding:54px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
+.hero-copy,.hero-card,.card,.day,details,.links-panel{background:rgba(255,253,250,.92);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+.hero-copy{padding:30px}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border-radius:999px;background:var(--brand-soft);color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{margin-top:18px;font-family:'Cormorant Garamond',serif;font-size:64px;line-height:.95}
+.hero h1 span{display:block;font-family:'Noto Sans KR',sans-serif;font-size:16px;font-weight:500;letter-spacing:.24em;color:var(--muted);margin-top:12px;text-transform:uppercase}
+.lead{margin-top:18px;color:var(--muted);font-size:16px;max-width:650px}
+.pills,.tags,.chips{display:flex;flex-wrap:wrap;gap:10px}
+.pills{margin-top:18px}.pill,.tag,.chip{padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.pill{background:#fff3e7;color:#8d531e}.tag{background:var(--brand-soft);color:var(--brand)}.chip{background:#f3eee6;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.stat{padding:14px;border-radius:18px;background:#fff;border:1px solid rgba(31,44,40,.05)}
+.stat strong{display:block;font-size:22px;font-family:'Cormorant Garamond',serif}.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.hero-card{overflow:hidden}
+.hero-card img{height:100%;min-height:360px;object-fit:cover}
+.section{padding:18px 0 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:14px}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1}
+.section-head p{color:var(--muted);font-size:14px}
+.grid-3,.grid-2{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:1fr 1fr}
+.card{padding:22px}.card h3{font-size:18px;margin-bottom:8px}.card p,.card li{font-size:14px;color:var(--muted)}
+.card ul{list-style:none;display:grid;gap:8px;margin-top:10px}
+.route{display:grid;gap:12px}
+details{padding:18px 18px 16px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+.day-title{font-size:18px;font-weight:800}
+.day-sub{font-size:13px;color:var(--muted);margin-top:4px}
+.day-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.day-meta span{font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f5efe6;color:#786a5d}
+.day-body{margin-top:14px;display:grid;gap:12px}
+.slot{display:grid;grid-template-columns:72px 1fr;gap:12px;padding-top:10px;border-top:1px dashed var(--line)}
+.time{font-size:12px;font-weight:800;color:var(--accent);padding-top:2px}
+.slot h4{font-size:15px;margin-bottom:2px}.slot p{font-size:13px;color:var(--muted)}
+.note{padding:12px 14px;border-radius:16px;background:#fff6eb;color:#7e603f;font-size:13px}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.links-panel{padding:20px}.links-panel h3{font-size:18px;margin-bottom:10px}.links-panel ul{list-style:none;display:grid;gap:8px}.links-panel li a{font-size:14px;font-weight:700}
+.footer{padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:920px){
+  .hero-grid,.grid-3,.grid-2,.links{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:50px}
+  .hero-card img{min-height:260px}
+}
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .nav-inner{height:58px}.menu{display:none}.brand{font-size:24px}
+  .hero{padding:28px 0 20px}.hero-copy,.card,details,.links-panel{padding:18px}
+  .hero h1{font-size:40px}.hero h1 span{font-size:13px;letter-spacing:.14em}
+  .lead{font-size:14px}.stats{grid-template-columns:1fr 1fr;gap:10px}
+  .section-head{display:block}.section-head h2{font-size:32px;margin-bottom:6px}
+  .slot{grid-template-columns:58px 1fr;gap:10px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">BALI 2026</a>
+    <ul class="menu">
+      <li><a href="#overview">핵심</a></li>
+      <li><a href="#stays">숙소</a></li>
+      <li><a href="#route">일정</a></li>
+      <li><a href="#links">링크</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <section class="hero-copy">
+      <span class="kicker">Bali Family Journey</span>
+      <h1>발리<span>우붓 · 사파리 · 스미냑</span></h1>
+      <p class="lead">늦은 밤 도착 후 바로 우붓으로 들어가고, 우붓 중심가 산책과 사파리 1박, 마지막 스미냑·짱구 감성까지 잇는 6인 가족 여행 플랜입니다.</p>
+      <div class="pills">
+        <span class="pill">7/26 15:00 출발</span>
+        <span class="pill">8/03 00:10 귀국</span>
+        <span class="pill">어른 4 + 아이 2</span>
+        <span class="pill">8박 9일</span>
+      </div>
+      <div class="tags">
+        <span class="tag">🌿 우붓 중심 산책</span>
+        <span class="tag">🦁 사파리 1박</span>
+        <span class="tag">🌅 스미냑 선셋</span>
+        <span class="tag">☕ 짱구 반일</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>1,450만~1,700만</strong><span>전체 예산</span></div>
+        <div class="stat"><strong>4곳</strong><span>숙소</span></div>
+        <div class="stat"><strong>8/2</strong><span>마지막 풀데이</span></div>
+        <div class="stat"><strong>20:30~21:00</strong><span>공항 출발</span></div>
+      </div>
+    </section>
+    <aside class="hero-card">
+      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80" alt="발리 우붓 풍경">
+    </aside>
+  </div>
+</header>
+<main class="wrap">
+  <section class="section" id="overview">
+    <div class="section-head">
+      <h2>핵심 요약</h2>
+      <p>첫날은 바로 우붓, 중간은 사파리, 마지막은 스미냑과 해변 데이</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <h3>왜 이 루트인가</h3>
+        <ul>
+          <li>첫날 심야 도착이라 공항 1박보다 우붓 직행이 효율적입니다.</li>
+          <li>우붓은 KajaNe Mua 기준으로 중심가 도보 동선을 살릴 수 있습니다.</li>
+          <li>사파리는 1박을 넣어야 체험 가치가 확실히 살아납니다.</li>
+        </ul>
+      </article>
+      <article class="card" id="stays">
+        <h3>최종 숙소</h3>
+        <ul>
+          <li>7/26: Champlung Sari Hotel Ubud</li>
+          <li>7/27 ~ 7/29: KajaNe Mua</li>
+          <li>7/30: Mara River Safari Lodge</li>
+          <li>7/31 ~ 8/02: Aloft Bali Seminyak</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>운영 포인트</h3>
+        <ul>
+          <li>장거리 이동일에는 메인 일정 1개만 넣습니다.</li>
+          <li>우붓은 카페·시장·왕궁권을 묶어 도보로 움직입니다.</li>
+          <li>8/2는 Waterbom 대신 해변 데이로 확정입니다.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section class="section" id="route">
+    <div class="section-head">
+      <h2>시간별 일정</h2>
+      <p>이동 시간을 넉넉히 반영한 현실적인 일정표</p>
+    </div>
+    <div class="route">
+      <details class="day" open>
+        <summary>
+          <div>
+            <div class="day-title">Day 1. 7/26 심야 우붓 진입 🌙</div>
+            <div class="day-sub">청주 출발 후 밤 도착, 바로 우붓 이동</div>
+            <div class="day-meta"><span>직항</span><span>이동일</span><span>Champlung Sari</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">11:30</div><div><h4>공항 이동</h4><p>국제선 수속 여유 있게 출발</p></div></div>
+          <div class="slot"><div class="time">15:00</div><div><h4>청주 출발</h4><p>발리행 직항 탑승</p></div></div>
+          <div class="slot"><div class="time">21:00~22:00</div><div><h4>입국</h4><p>비자, 관광세, 수하물 수령</p></div></div>
+          <div class="slot"><div class="time">22:30~00:30</div><div><h4>우붓 이동</h4><p>심야 차량으로 우붓 진입</p></div></div>
+          <div class="note">공항 근처 1박보다 바로 우붓 진입이 다음날 시간을 더 아껴줍니다.</div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 2. 7/27 우붓 중심 첫날 🌿</div>
+            <div class="day-sub">KajaNe Mua 이동, 중심가 산책 시작</div>
+            <div class="day-meta"><span>우붓</span><span>KajaNe Mua</span><span>Ubud HomeMADE</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:00</div><div><h4>체크아웃 후 본숙소 이동</h4><p>KajaNe Mua 체크인 또는 짐 보관</p></div></div>
+          <div class="slot"><div class="time">11:30</div><div><h4>Monkey Forest Road 산책</h4><p>중심가 감성 적응</p></div></div>
+          <div class="slot"><div class="time">15:30</div><div><h4>Saraswati Temple</h4><p>연못 앞 포토 스폿</p></div></div>
+          <div class="slot"><div class="time">18:30</div><div><h4>Ubud HomeMADE Resto</h4><p>체크인날 가장 편한 저녁</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 3. 7/28 우붓 워킹데이 ☕</div>
+            <div class="day-sub">왕궁, 시장, 점심, 커피를 도보로 연결</div>
+            <div class="day-meta"><span>우붓</span><span>Art Market</span><span>Clear Cafe</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:30</div><div><h4>Ubud Palace</h4><p>외부 관람 중심 산책</p></div></div>
+          <div class="slot"><div class="time">10:30</div><div><h4>Ubud Art Market</h4><p>기념품과 소품 쇼핑</p></div></div>
+          <div class="slot"><div class="time">12:00</div><div><h4>Clear Cafe Ubud</h4><p>가족 점심</p></div></div>
+          <div class="slot"><div class="time">15:00</div><div><h4>Seniman Coffee</h4><p>오후 커피와 간식</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 4. 7/29 공예 체험 + 선택 활동 🎨</div>
+            <div class="day-sub">체험 1개, 점심 1개, 오후 선택지 1개</div>
+            <div class="day-meta"><span>우붓</span><span>Craft</span><span>Watercress</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">10:00</div><div><h4>공예 체험</h4><p>실버 또는 공예 클래스</p></div></div>
+          <div class="slot"><div class="time">12:30</div><div><h4>Watercress Ubud</h4><p>브런치 겸 점심</p></div></div>
+          <div class="slot"><div class="time">15:00</div><div><h4>Monkey Forest 또는 마사지</h4><p>컨디션 따라 선택</p></div></div>
+          <div class="slot"><div class="time">18:30</div><div><h4>마지막 우붓 저녁</h4><p>KajaNe Mua 근처</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 5. 7/30 사파리 + Mara River 🦁</div>
+            <div class="day-sub">사파리 체험과 1박이 메인인 날</div>
+            <div class="day-meta"><span>사파리</span><span>Mara River</span><span>Tsavo</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:30</div><div><h4>체크아웃</h4><p>KajaNe Mua 출발</p></div></div>
+          <div class="slot"><div class="time">10:30~15:30</div><div><h4>Bali Safari</h4><p>Safari Journey 중심</p></div></div>
+          <div class="slot"><div class="time">16:00</div><div><h4>Mara River 체크인</h4><p>객실 휴식</p></div></div>
+          <div class="slot"><div class="time">18:30</div><div><h4>Tsavo Lion Restaurant</h4><p>체험형 저녁</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 6. 7/31 스미냑 첫날 🌅</div>
+            <div class="day-sub">이동 후 선셋과 저녁 한 곳만</div>
+            <div class="day-meta"><span>스미냑</span><span>Aloft</span><span>SugarSand</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:00</div><div><h4>체크아웃</h4><p>사파리 호텔 출발</p></div></div>
+          <div class="slot"><div class="time">10:00~12:00</div><div><h4>스미냑 이동</h4><p>Aloft Bali Seminyak 체크인</p></div></div>
+          <div class="slot"><div class="time">14:00</div><div><h4>수영장/휴식</h4><p>이동 피로 회복</p></div></div>
+          <div class="slot"><div class="time">18:30</div><div><h4>SugarSand</h4><p>선셋 + 저녁</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 7. 8/01 짱구 반일 + 스미냑 저녁 ☕</div>
+            <div class="day-sub">짱구는 반일만 보는 것이 가장 부담이 적음</div>
+            <div class="day-meta"><span>짱구</span><span>Deus Cafe</span><span>Kaum</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:30</div><div><h4>짱구 이동</h4><p>Batu Bolong 권역 추천</p></div></div>
+          <div class="slot"><div class="time">10:30</div><div><h4>Deus Cafe</h4><p>브런치</p></div></div>
+          <div class="slot"><div class="time">12:00</div><div><h4>Batu Bolong 산책</h4><p>짧게 바다 분위기 보기</p></div></div>
+          <div class="slot"><div class="time">18:30</div><div><h4>Kaum</h4><p>가족 저녁 1회</p></div></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>
+          <div>
+            <div class="day-title">Day 8. 8/02 해변 데이 + 공항 이동 🌊</div>
+            <div class="day-sub">마지막 풀데이는 해변과 수영장 위주</div>
+            <div class="day-meta"><span>해변</span><span>Batu Belig</span><span>공항</span></div>
+          </div>
+          <span class="chip">열기/닫기</span>
+        </summary>
+        <div class="day-body">
+          <div class="slot"><div class="time">09:30</div><div><h4>늦은 조식</h4><p>숙소 또는 근처</p></div></div>
+          <div class="slot"><div class="time">11:00~16:00</div><div><h4>해변 데이</h4><p>Seminyak/Batu Belig, 수영장, 마지막 쇼핑</p></div></div>
+          <div class="slot"><div class="time">18:00</div><div><h4>Potato Head 또는 Dome</h4><p>이른 마지막 저녁</p></div></div>
+          <div class="slot"><div class="time">20:30~21:00</div><div><h4>공항 이동</h4><p>00:10 항공편 기준 여유 있게 출발</p></div></div>
+          <div class="note">귀국편은 8/03 00:10이지만 실제 운영은 8/2 밤 일정으로 생각하면 가장 편합니다.</div>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section class="section" id="links">
+    <div class="section-head">
+      <h2>바로가기 링크</h2>
+      <p>예약과 준비에 필요한 최소한의 링크만 정리</p>
+    </div>
+    <div class="links">
+      <article class="links-panel">
+        <h3>숙소</h3>
+        <ul>
+          <li><a href="https://champlungsariubud.com/" target="_blank" rel="noopener noreferrer">Champlung Sari Hotel Ubud</a></li>
+          <li><a href="https://kajane.com/property/kajane-mua/" target="_blank" rel="noopener noreferrer">KajaNe Mua Ubud</a></li>
+          <li><a href="https://marariversafarilodge.com/" target="_blank" rel="noopener noreferrer">Mara River Safari Lodge</a></li>
+          <li><a href="https://www.marriott.com/en-us/hotels/dpsas-aloft-bali-seminyak/overview/" target="_blank" rel="noopener noreferrer">Aloft Bali Seminyak</a></li>
+        </ul>
+      </article>
+      <article class="links-panel">
+        <h3>체험</h3>
+        <ul>
+          <li><a href="https://tamansafari.com/taman-safari-bali/safari-info/schedules/" target="_blank" rel="noopener noreferrer">Bali Safari</a></li>
+          <li><a href="https://monkeyforestubud.com/visit/" target="_blank" rel="noopener noreferrer">Monkey Forest</a></li>
+          <li><a href="https://www.klook.com/activity/124675-silver-jewelry-making-class-in-ubud/" target="_blank" rel="noopener noreferrer">우붓 실버 클래스</a></li>
+        </ul>
+      </article>
+      <article class="links-panel">
+        <h3>출발 전</h3>
+        <ul>
+          <li><a href="https://evisa.imigrasi.go.id/front/info/evoa" target="_blank" rel="noopener noreferrer">인도네시아 eVOA</a></li>
+          <li><a href="https://lovebali.baliprov.go.id/faq" target="_blank" rel="noopener noreferrer">발리 관광세</a></li>
+          <li><a href="https://www.grab.com/global/ko/airport-rides/i-gusti-ngurah-rai-international-airport/" target="_blank" rel="noopener noreferrer">Grab 공항 픽업</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <p>심플한 레이아웃으로 다시 정리한 컴팩트 여행 플랜입니다.</p>
+  </div>
+</footer>
+</body>
+</html>
